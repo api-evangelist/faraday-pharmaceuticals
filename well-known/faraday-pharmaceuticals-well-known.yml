@@ -1,0 +1,29 @@
+generated: '2026-08-04'
+method: probed
+host: https://www.faradaypharma.com
+result: none
+note: >-
+  No /.well-known/ discovery surface exists. Faraday Pharmaceuticals ceased operations in
+  February 2026 and its Squarespace-hosted site is expired — every path on the domain, including
+  the site root, returns HTTP 404 with the Squarespace "Website Expired" page. The 404s below are
+  therefore a site-wide condition, not per-path misses. No documents were saved and no WellKnown /
+  SecurityTxt pointer is wired in apis.yml, because nothing is published.
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /.well-known/agent-card.json
+  status: 404
+- path: /.well-known/agent.json
+  status: 404
+x-evidence:
+  fetched: '2026-08-04'
+  user_agents_tried: [curl default, Chrome 126 desktop UA]
+  control: 'GET / -> 404 (Squarespace "Website Expired"), so all 404s are site-wide'

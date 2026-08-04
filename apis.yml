@@ -1,17 +1,44 @@
 aid: faraday-pharmaceuticals
 name: Faraday Pharmaceuticals
-description: 'Faraday Pharmaceuticals is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'Faraday Pharmaceuticals, Inc. was a Seattle, Washington clinical-stage biopharmaceutical
+  company founded in 2014 as a spinout of Fred Hutchinson Cancer Center, built on the elemental-reducing-agent
+  research of Dr. Mark Roth. It developed therapies intended to prevent and treat cardiac and skeletal
+  muscle loss after acute critical illness, led by FDY-5301 — a proprietary intravenous formulation of
+  sodium iodide designed to neutralize reactive oxygen species and limit reperfusion injury in patients
+  undergoing percutaneous coronary intervention for anterior ST-elevation myocardial infarction (STEMI).
+  The company raised roughly $120M from an investor group led by ARCH Venture Partners and Polaris Partners.
+  Its Phase 3 trial read out in late 2025 and failed to meet its primary or secondary endpoints, and Faraday
+  announced in February 2026 that it had ceased operations and was winding down the business. Faraday never
+  operated a developer program, public API, SDK, or machine-readable specification, and its faradaypharma.com
+  website is no longer served. This profile is retained as a historical record; there is no API surface to
+  enrich.'
 url: https://raw.githubusercontent.com/api-evangelist/faraday-pharmaceuticals/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
-x-tier-reason: harvest
+x-tier-reason: defunct-no-api-surface
+x-status: defunct
+x-founded: '2014'
+x-shutdown-date: '2026-02'
+x-shutdown-reason: FDY-5301 Phase 3 missed its primary and secondary endpoints; the company announced
+  in February 2026 that it had ceased operations and was winding down.
+x-domain-status: expired-hosting
+x-domain-note: faradaypharma.com still resolves to Squarespace and retains live SPF/DMARC mail records,
+  but every path — including / — returns HTTP 404 with the Squarespace "Website Expired" page. The domain
+  is deliberately NOT wired as a Website pointer because it no longer serves company content.
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Pharmaceuticals
+- Biotechnology
+- Life Sciences
+- Clinical Trials
+- Clinical Stage
+- Cardiology
+- Drug Development
+- Defunct
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +46,14 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
-- type: Website
+- type: LinkedIn
+  url: https://www.linkedin.com/company/faradaypharma
+- type: SecondaryMarket
   url: https://forgeglobal.com/faraday-pharmaceuticals_stock/
+- type: DomainSecurity
+  url: security/faraday-pharmaceuticals-domain-security.yml
+x-enrichment:
+  date: '2026-08-04'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1

@@ -1,0 +1,85 @@
+aid: faraday-pharmaceuticals
+name: Faraday Pharmaceuticals
+review:
+  question: >-
+    Does Faraday Pharmaceuticals publish any machine-readable API contract or public
+    developer surface (OpenAPI, GraphQL, MCP, A2A agent card, webhooks, SDKs)?
+  answer: false
+  date: '2026-08-04'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    No. Faraday Pharmaceuticals was a Seattle clinical-stage biopharmaceutical company
+    (founded 2014, a Fred Hutchinson Cancer Center spinout on Dr. Mark Roth's
+    elemental-reducing-agent research) developing FDY-5301, an intravenous sodium iodide
+    formulation for reperfusion injury in anterior STEMI patients undergoing PCI. It raised
+    roughly $120M led by ARCH Venture Partners and Polaris Partners. Its Phase 3 trial read
+    out in late 2025 and missed both its primary and secondary endpoints; in February 2026
+    the company announced it had ceased operations and was winding down.
+
+    Faraday was a drug developer, not a software or platform company. It never operated a
+    developer portal, published documentation, shipped an SDK or CLI, or exposed a public
+    API of any kind. The corporate domain faradaypharma.com still resolves (Squarespace DNS,
+    valid Let's Encrypt certificates, live SPF and DMARC p=reject mail records) but the
+    website hosting has expired: every path, including the site root, returns HTTP 404 with
+    the Squarespace "Website Expired" page. There is no surface left to harvest.
+
+    Note on name collisions: several unrelated entities share the "Faraday" name and DO have
+    APIs — Faraday (faraday.ai / faradayio, B2C predictive AI), Faraday the Ruby HTTP client
+    library (lostisland/faraday), and Faraday the open-source vulnerability management
+    platform (infobyte/faraday). None of these are Faraday Pharmaceuticals and none of their
+    artifacts belong in this repo.
+  contractDiscovery:
+    date: '2026-08-04'
+    hostsProbed:
+    - www.faradaypharma.com
+    - faradaypharma.com
+    subdomainsProbed:
+    - host: api.faradaypharma.com
+      resolves: false
+    - host: developer.faradaypharma.com
+      resolves: false
+    - host: docs.faradaypharma.com
+      resolves: false
+    restOpenapi:
+      found: false
+      paths: [/openapi.json, /openapi.yaml, /swagger.json, /api-docs, /docs, /apis.json]
+      result: all 404 (site-wide Squarespace expired page)
+    graphql:
+      found: false
+      note: no /graphql surface; no API host resolves
+    mcp:
+      found: false
+      note: no MCP endpoint documented or discoverable
+    a2aAgentCard:
+      found: false
+      paths: [/.well-known/agent-card.json, /.well-known/agent.json]
+      result: 404 on both; nothing written to a2a/ per the search-only rule
+    llmsTxt:
+      found: false
+      path: /llms.txt
+      status: 404
+    asyncapiWebhooks:
+      found: false
+      note: no event, streaming, or webhook surface
+    packages:
+      found: false
+      registriesChecked: [npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist, crates.io]
+      note: >-
+        Registry hits for "faraday" belong to the unrelated Ruby HTTP client library, the
+        faradayio B2C AI company, and the infobyte vulnerability scanner. No first-party
+        Faraday Pharmaceuticals client library exists.
+    githubOrg:
+      found: false
+  companyStatus:
+    status: defunct
+    shutdownAnnounced: '2026-02'
+    reason: FDY-5301 Phase 3 missed its primary and secondary endpoints
+    domainStatus: expired-hosting
+sources:
+- https://www.faradaypharma.com/
+- https://www.biospace.com/job-trends/6-biotechs-that-called-it-quits-in-q1
+- https://endpoints.news/six-biotechs-file-for-hkex-listing-faraday-pharmaceuticals-shutters/
+- https://www.geekwire.com/2019/fred-hutch-spinout-faraday-pharmaceuticals-raises-25m-muscle-loss-prevention-drug/
+- https://www.linkedin.com/company/faradaypharma
+- https://forgeglobal.com/faraday-pharmaceuticals_stock/

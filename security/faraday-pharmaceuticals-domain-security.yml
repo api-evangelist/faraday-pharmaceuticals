@@ -1,0 +1,53 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS + TLS probe of faradaypharma.com (dig, openssl s_client, HTTP HEAD)
+note: >-
+  Faraday Pharmaceuticals ceased operations in February 2026. The corporate domain still
+  resolves and still carries live mail-authentication records, but the website itself is no
+  longer served — every path returns HTTP 404 with the Squarespace "Website Expired" page.
+  These readings describe a parked/wound-down domain, not an operating API surface.
+hosts:
+- host: www.faradaypharma.com
+  https: true
+  tls_version: TLSv1.3
+  cert_issuer: "Let's Encrypt"
+  cert_expires: 'Oct  6 04:25:41 2026 GMT'
+  hsts: true
+  hsts_max_age: 15552000
+  http_status: 404
+  server: Squarespace
+  serving_content: false
+- host: faradaypharma.com
+  https: true
+  tls_version: TLSv1.3
+  cert_issuer: "Let's Encrypt"
+  cert_expires: 'Oct 16 19:15:41 2026 GMT'
+  http_status: 404
+  server: Squarespace
+  serving_content: false
+domains:
+- domain: faradaypharma.com
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: 'v=spf1 include:spf.protection.outlook.com include:spf.tmes.trendmicro.com -all'
+  dmarc: true
+  dmarc_policy: reject
+  dmarc_pct: 100
+  mx: true
+  mx_hosts:
+  - faradaypharma.in.tmes.trendmicro.com
+  nameservers:
+  - ns01.squarespacedns.com
+  - ns02.squarespacedns.com
+  - ns03.squarespacedns.com
+  - ns04.squarespacedns.com
+  - dns1.p03.nsone.net
+  - dns2.p03.nsone.net
+  - dns3.p03.nsone.net
+  - dns4.p03.nsone.net
+x-evidence:
+  fetched: '2026-08-04'
+  dns_queries: [A, NS, MX, TXT, CAA, DNSKEY, _dmarc TXT]
+  tls_probe: openssl s_client TLSv1.3 handshake, verify return code 0 (ok)
+  http_probe: 'HEAD https://www.faradaypharma.com/ -> HTTP/2 404, server: Squarespace'
