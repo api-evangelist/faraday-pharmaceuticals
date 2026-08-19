@@ -26,7 +26,7 @@ x-domain-status: expired-hosting
 x-domain-note: faradaypharma.com still resolves to Squarespace and retains live SPF/DMARC mail records,
   but every path — including / — returns HTTP 404 with the Squarespace "Website Expired" page. The domain
   is deliberately NOT wired as a Website pointer because it no longer serves company content.
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 tags:
